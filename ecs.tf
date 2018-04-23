@@ -61,4 +61,6 @@ resource "aws_ecs_service" "main" {
     container_name   = "${var.app_name}"
     container_port   = "${var.container_port}"
   }
+
+  depends_on = ["aws_alb_target_group.main", "aws_alb.main", "aws_alb_listener.https"]
 }
