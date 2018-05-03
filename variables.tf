@@ -13,13 +13,6 @@ variable "key_name" {
   description = "Name of key pair for SSH login to ECS cluster instances"
 }
 
-// If you use other than us-east-1, need to change the following:
-
-variable "region" {
-  description = "Region for ECS cluster"
-  default     = "us-east-1"
-}
-
 variable "ami" {
   description = "ECS cluster instance AMI id, default is Amazon ECS-optimized AMI in us-east-1"
   default     = "ami-eca289fb"
@@ -30,6 +23,21 @@ variable "ami" {
 variable "app_name" {
   description = "Your application name"
   default     = "demo-app"
+}
+
+variable "https" {
+  description = "Listen over https"
+  default     = false
+}
+
+variable "app_certificate_arn" {
+  description = "SSL cert ARN"
+  default     = ""
+}
+
+variable "app_ssl_policy" {
+  description = "SSL Policy"
+  default     = "ELBSecurityPolicy-2015-05"
 }
 
 variable "image" {
