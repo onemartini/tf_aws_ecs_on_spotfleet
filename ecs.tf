@@ -31,22 +31,7 @@ resource "aws_ecs_cluster" "main" {
 resource "aws_ecs_task_definition" "main" {
   family = "${var.app_name}"
 
-  container_definitions = <<DEFINITIONS
-[
-  {
-    "cpu": ${var.cpu_unit},
-    "essential": true,
-    "image": "${var.image}",
-    "memory": ${var.memory},
-    "name": "${var.app_name}",
-    "portMappings": [
-      {
-        "containerPort": ${var.container_port}
-      }
-    ]
-  }
-]
-DEFINITIONS
+  container_definitions = "${file(var.container_definitions_file)}"
 }
 
 resource "aws_ecs_service" "main" {
