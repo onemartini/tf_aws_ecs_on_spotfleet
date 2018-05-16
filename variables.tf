@@ -40,9 +40,9 @@ variable "app_ssl_policy" {
   default     = "ELBSecurityPolicy-2015-05"
 }
 
-variable "image" {
-  description = "Your docker image name, default it ECS PHP Simple App"
-  default     = "wata727/ecs-demo-php-simple-app:latest"
+variable "container_definitions_file" {
+  description = "ECS Container Definition JSON file"
+  default     = "container-definitions.json"
 }
 
 variable "container_port" {
