@@ -29,7 +29,7 @@ resource "aws_ecs_cluster" "main" {
 }
 
 resource "aws_ecs_task_definition" "main" {
-  family = "${var.app_name}"
+  family = "${var.task_name}"
 
   container_definitions = "${file(var.container_definitions_file)}"
 }
@@ -43,7 +43,7 @@ resource "aws_ecs_service" "main" {
 
   load_balancer {
     target_group_arn = "${aws_alb_target_group.main.id}"
-    container_name   = "${var.app_name}"
+    container_name   = "${var.container_name}"
     container_port   = "${var.container_port}"
   }
 

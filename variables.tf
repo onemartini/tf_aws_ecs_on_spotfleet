@@ -25,6 +25,14 @@ variable "app_name" {
   default     = "demo-app"
 }
 
+variable "task_name" {
+  description = "Your Task Name"
+}
+
+variable "container_name" {
+  description = "Your Container Name"
+}
+
 variable "https" {
   description = "Listen over https"
   default     = false
